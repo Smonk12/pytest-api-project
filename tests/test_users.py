@@ -21,3 +21,9 @@ def test_user_not_found():
     assert response.status_code in [200, 404]
 
 
+def test_invalid_endpoint_returns_404():
+    url = "https://jsonplaceholder.typicode.com/invalid-endpoint"
+
+    response = requests.get(url)
+
+    assert response.status_code == 404
